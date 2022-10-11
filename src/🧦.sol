@@ -29,10 +29,6 @@ contract Socks is ERC1155 {
         if (block.timestamp > endTime) revert MintFinished();
 
         Sock sock = Sock(block.difficulty % 2);
-        if (sock == Sock.Left) {
-            _mint({to: msg.sender, id: uint256(sock), amount: 1, data: ""});
-        } else {
-            _mint({to: msg.sender, id: uint256(sock), amount: 1, data: ""});
-        }
+        _mint({to: msg.sender, id: uint256(sock), amount: 1, data: ""});
     }
 }
